@@ -1,0 +1,56 @@
+2. Write a program in JAVA to create a Date class and compute age by accepting current Date
+and Date of birth.
+Code :-
+import java.util.*;
+class date{
+int day;
+int month;
+int year;
+void input(int x, int y,int z){
+day=x;
+month=y;
+year=z;
+}
+void output(){
+System.out.println("Day:"+day + " Month :"+month +" Year :"+year);
+}
+date calculateAge(date CD, date DOB){
+date age= new date();
+if(CD.day<DOB.day){
+age.day=(CD.day+30)-DOB.day;
+CD.month--;
+}
+else{
+age.day=CD.day-DOB.day;
+}
+if(CD.month<DOB.month){
+age.month=(CD.month+12)-DOB.month;
+CD.year--;
+}
+else{
+age.month=CD.month-DOB.month;
+}
+age.year=DOB.year-CD.year;
+return age;
+}
+}
+class test{
+public static void main(String args[]){
+Scanner sc= new Scanner(System.in);
+date d1=new date();
+int x=sc.nextInt();
+int y=sc.nextInt();
+int z=sc.nextInt();
+d1.input(x,y,z);
+d1.output();
+date d2=new date();
+int x1=sc.nextInt();
+int y1=sc.nextInt();
+int z1=sc.nextInt();
+d2.input(x1,y1,z1);
+d2.output();
+date d3=new date();
+d3=d3.calculateAge(d1,d2);
+d3.output();
+}
+}

@@ -1,0 +1,59 @@
+7.Write a program in java to implement Queue.
+class queue
+{
+ int []arr;
+ int rear;
+ int front;
+ queue (int size)
+ {
+ arr = new int[size];
+ rear = -1;
+ front = -1;
+ }
+ void insert (int item)
+ {
+ if (rear >= arr.length-1)
+ {
+ System.out.println("Queue is full");
+ }
+ else
+ {
+ if ((front == -1) && (rear == -1))
+ {
+ rear =front = 0;
+ arr[rear] = item;
+ }
+ else
+ {
+ ++rear;
+ arr[rear] = item;
+
+ System.out.println("Rear=" + rear+"front = "+front+ item);
+ }
+ }
+ }
+ int delete()
+ {
+ if (((front == -1) && (rear == -1)) ||(rear == front))
+ {
+ System.out.println("Queue is underflow");
+ return 0;
+ }
+ else
+ {
+ return arr[front++];
+ }
+ }
+}
+class test
+{
+ public static void main (String args[])
+ {
+ queue q = new queue(4);
+ q.insert(2);
+ q.insert(4);
+ q.insert(6);
+ q.insert(8);
+ System.out.println(q.delete());
+ }
+} 

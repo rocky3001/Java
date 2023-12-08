@@ -1,0 +1,41 @@
+9. WAP in java to compute the percentage of a student where student is a class
+having the details of student(name ,roll ,stream ) and marks is a class having
+the marks of 4 subjects(sub1,2,3,4) display the percentage of students along
+with the details.
+class student {
+ public String name;
+ public String stream;
+ public int roll;
+ student() {
+ name = "Ram";
+ stream = "CSE";
+ roll = 1;
+ }
+}
+class marks extends student {
+ public int sub1, sub2, sub3, sub4;
+ marks() {
+ sub1 = 70;
+ sub2 = 80;
+ sub3 = 90;
+ sub4 = 95;
+ }
+ double calc() {
+ double p = (sub1 + sub2 + sub3 + sub4) / 4;
+ return p;
+ }
+ void show() {
+ System.out.println("Name\t\tstream\troll\tsub1\tsub2\tsub3\tsub4\tperc
+ent");
+ System.out
+ .println(name + "\t\t" + stream + "\t" + roll + "\t" + sub1 +
+"\t" + sub2 + "\t" + sub3 + "\t" + sub4
+ + "\t" + calc());
+ }
+}
+class Test {
+ public static void main(String arg[]) {
+ marks m = new marks();
+ m.show();
+ }
+}

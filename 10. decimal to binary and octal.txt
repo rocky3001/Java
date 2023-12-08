@@ -1,0 +1,47 @@
+10. Write a program in java to create a decimal class that accepts a decimal number from the user,
+extend the decimal class by binary and octal class to convert the decimal number to its
+corresponding binary and octal representaƟon .
+import java.util.*;
+class decimal {
+ int num;
+ void input(int a) {
+ num = a;
+ }
+}
+class binary extends decimal {
+ void toBinary(int a) {
+ int binary[] = new int[40];
+ int index = 0;
+ while (a > 0) {
+ binary[index++] = a % 2;
+ a = a / 2;
+ }
+ for (int i = index - 1; i >= 0; i--)
+ System.out.print(binary[i]);
+ System.out.println();
+ }
+}
+class octal extends decimal {
+ void toOctal(int a) {
+ int octal[] = new int[40];
+ int index = 0;
+ while (a > 0) {
+ octal[index++] = a % 8;
+ a = a / 8;
+ }
+ for (int i = index - 1; i >= 0; i--)
+ System.out.print(octal[i]);
+ System.out.println();
+ }
+}
+class test {
+ public static void main(String[] arg) {
+ Scanner sc = new Scanner(System.in);
+ System.out.println("Enter a decimal value ");
+ int a = sc.nextInt();
+ binary b = new binary();
+ b.toBinary(a);
+ octal o = new octal();
+ o.toOctal(a);
+ }
+} 

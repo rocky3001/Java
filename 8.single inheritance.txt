@@ -1,0 +1,58 @@
+8. Write a program in java to implement a single level inheritance and check
+the accessibility of different types of access specifier.
+class Parent {
+ private int pvt = 10;
+ protected int prc = 20;
+ public int pub = 30;
+ int def = 40;
+ private void pvtMethod() {
+ System.out.println("Private Method");
+ }
+ protected void prcMethod() {
+ System.out.println("Procted Method");
+ }
+ public void pubMethod() {
+ System.out.println("Public Method");
+ }
+ void drfMethod() {
+ System.out.println("Default Method");
+ }
+ void check() {
+ System.out.println("private :" + pvt);
+ System.out.println("protected :" + prc);
+ System.out.println("public :" + pub);
+ System.out.println("default :" + def);
+ }
+}
+class Child extends Parent {
+ public void accessPerent() {
+ System.out.println("Public Variable =" + pub);
+ System.out.println("protected Variable =" + prc);
+ // System.out.println("private Variable =" + pvt);
+ System.out.println("Default Variable =" + def);
+ pubMethod();
+ prcMethod();
+ drfMethod();
+ // pvtMethod();
+ }
+}
+class Test {
+ public static void main(String arg[]) {
+ System.out.println("\nfrom sub class\n--------------------------------
+------");
+ Child c = new Child();
+ c.accessPerent();
+ System.out.println("\nfrom outside of class.\n------------------------
+-------------");
+ Parent p = new Parent();
+ // p.pvtMethod();
+ p.prcMethod();
+ p.pubMethod();
+ p.drfMethod();
+ System.out.println("\nfrom same class.\n------------------------------
+---------");
+ p.check();
+ }
+} 
+
+ 

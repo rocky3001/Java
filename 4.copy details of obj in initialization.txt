@@ -1,0 +1,25 @@
+4.Write a program in JAVA to copy details of one Object to Other during its initialization.
+Code :-
+import java.util.*;
+class employe{
+int id;
+String name;
+employe(int i, String n){
+ id=i;
+ name=n;
+}
+employe(employe e){
+id=e.id;
+name=e.name;
+}
+void output(){
+System.out.println("Id:" +id + " Name : " + name);
+}
+}
+class test{
+public static void main(String args[]){
+employe e1= new employe(2 , "Ashish");
+employe e2= new employe(e1);
+e2.output();
+}
+}

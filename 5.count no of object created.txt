@@ -1,0 +1,19 @@
+5.Write a program in JAVA to count number of Object Created.
+Code :-
+class countObject{
+static int count =0;
+countObject(){
+ count++;
+ }
+static void show(){
+System.out.println("No of object Created : " +count);
+}
+}
+class test{
+public static void main(String args[]){
+countObject c1= new countObject();
+countObject c2= new countObject();
+countObject c3= new countObject();
+countObject.show();
+}
+}

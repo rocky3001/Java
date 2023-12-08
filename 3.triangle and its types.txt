@@ -1,0 +1,53 @@
+3.Write a program in JAVA to create a Triangle class and the object of 3 different types of
+triangle.
+
+class triangle{
+triangle(int a){
+ System.out.println("Equilateral triangle");
+ }
+triangle(int a, int b){
+ System.out.println("isoseles triangle");
+ }
+triangle(int a, int b, int c){
+ System.out.println("Sclene triangle");
+ }
+}
+class test{
+public static void main(String args[]){
+triangle t1= new triangle(1);
+triangle t2= new triangle(2,3);
+triangle t3= new triangle(3,5,1);
+}
+}
+2.
+class Triangle
+{
+    Triangle(int a)
+    {
+        System.out.println("Equilateral Triangle ");
+        System.out.println("Area = "+(Math.sqrt(3)*a)/4);
+    }
+    Triangle(int a, int base)
+    {
+        System.out.println("Isosceless Triangle ");
+        double b = base/2;
+        double h = Math.sqrt((a*a)-(b*b));
+        System.out.println("Area = "+(0.5*b*h));
+    }
+    Triangle(int a,int b,int c)
+    {
+        System.out.println("Scalene Triangle ");
+	    double s = (a+b+c)/2;
+        System.out.println("Area  ="+Math.sqrt(s*(s-a)*(s-b)*(s-c)));
+    }
+}
+
+class TriangleArea
+{
+    public static void main(String arg[])
+    {
+        Triangle eq = new Triangle(10);
+        Triangle is = new Triangle(7,10);
+        Triangle sc = new Triangle(10,9,8);
+    }
+}

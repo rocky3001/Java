@@ -1,0 +1,54 @@
+14 . Write a program in JAVA to create an interface RATEOFINTEREST that
+consists of the rate of interest for a loan amount. Also create a class
+INTEREST that computes the simple and compound interest for a principle
+amount for certain time duration. The principle and the duration of the loan
+amount are given in a class PRINCIPAL. Use multiple inheritance to
+implement the problem.
+Ans:
+interface RateOfInterest {
+double getRateOfInterest();
+}
+class Principal {
+private double principalAmount;
+private int timeDuration;
+public Principal(double principalAmount, int timeDuration) {
+this.principalAmount = principalAmount;
+this.timeDuration = timeDuration;
+}
+public double getPrincipalAmount() {
+return principalAmount;
+}
+public int getTimeDuration() {
+return timeDuration;
+}
+}
+class Interest extends Principal implements RateOfInterest {
+public Interest(double principalAmount, int timeDuration) {
+super(principalAmount, timeDuration);
+}
+public double getRateOfInterest() {
+return 0.05;
+}
+public double calculateSimpleInterest() {
+double principal = getPrincipalAmount();
+int time = getTimeDuration();
+double rate = getRateOfInterest();
+return (principal * rate * time);
+}
+public double calculateCompoundInterest() {
+double principal = getPrincipalAmount();
+int time = getTimeDuration();
+double rate = getRateOfInterest();
+double amount = principal * Math.pow(1 + rate, time);
+return amount - principal;
+}
+}
+class Main {
+public static void main(String[] args) {
+Interest loan = new Interest(1000, 2);
+double simpleInterest = loan.calculateSimpleInterest();
+double compoundInterest = loan.calculateCompoundInterest();
+System.out.println("Simple Interest: " + simpleInterest);
+System.out.println("Compound Interest: " + compoundInterest);
+}
+}

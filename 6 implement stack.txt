@@ -1,0 +1,44 @@
+6.Write a program in java to implement stack.
+class STACK
+{
+ int [] arr;
+ int top;
+ STACK (int size)
+ {
+ arr = new int[size];
+ top = -1;
+ }
+void push (int item)
+{
+ if (top >= arr.length)
+ {
+ System.out.println("Stack Overflow");
+ }
+ else
+ {
+ arr[++top] = item;
+ }
+}
+int pop ()
+{
+ if (top == -1)
+ {
+ System.out.println("Stack Underflow");
+ return 0;
+ }
+ else
+ {
+ return arr[top--];
+ }
+}
+}
+class test
+{
+ public static void main (String args[])
+ {
+ STACK s = new STACK(5);
+ s.push(10);
+ s.push(12);
+ System.out.println(s.pop());
+ }
+ } 

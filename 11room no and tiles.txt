@@ -1,0 +1,35 @@
+11. Write a program in java to create a room class that contains the specificaƟon of a room and
+also create a Ɵle class that contains the specificaƟon of a Ɵle count the number of Ɵles to cover the
+floor of the room.
+class room {
+ double rL, rB;
+ void details(double l, double b) {
+ rL = l;
+ rB = b;
+ }
+ double areaR() {
+ return rB * rL;
+ }
+}
+class tile extends room {
+ double tL, tB;
+ void tileDetails(double l, double b) {
+ tL = l;
+ tB = b;
+ }
+ double areaT() {
+ return tB * tL;
+ }
+ void count() {
+ double n = areaR() / areaT();
+ System.out.println(Math.ceil(n));
+ }
+}
+class test {
+ public static void main(String[] arg) {
+ tile t = new tile();
+ t.details(10.0, 9.0); //dimension of room
+ t.tileDetails(2, 1); //dimension of tile
+ t.count();
+ }
+} 
